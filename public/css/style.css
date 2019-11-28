@@ -1,0 +1,116 @@
+@media screen and (max-width: 800px) {
+    h1 {
+        font-size: 6vw;
+    }
+}
+
+body {
+     font-family: arial;
+     font-size: 1.5em;
+ }
+    .ingredients {
+        font-weight: bold;
+}
+#hamburgare {
+     color: white;
+     background-color: black;
+     border: 5px double white;
+    margin-top: 2%;
+ }
+#kund {
+    border: 5px double black;
+}
+#orderinfo{
+    border: 5px double black;
+    background-color: indianred;
+}
+
+button:hover {
+    background-color: red;
+}
+button{
+    margin-top: 2%;
+}
+header{
+    text-align: center;
+    border: 5px double black;
+    padding-bottom: 2%;
+    height: 200px;
+    overflow:hidden
+
+}
+.wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, 15em);
+    grid-template-rows: auto;
+    background-color: black;
+    color: white;
+}
+
+.burger-item{
+
+    background-color: indianred;
+}
+.burger-item img {
+    height: 220px;
+    overflow: hidden;
+    width: 100%;
+}
+.box {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    font-size: 150%;
+}
+
+.a {
+    grid-column: 1 ;
+    grid-row: 1;
+}
+.b {
+    grid-column: 2;
+    grid-row: 1;
+}
+.c {
+    grid-column: 3 ;
+    grid-row: 1;
+}
+.d {
+     grid-column: 1 ;
+     grid-row: 2;
+ }
+.e {
+    grid-column: 2 ;
+    grid-row: 2;
+}
+.f {
+    grid-column: 3 ;
+    grid-row: 2;
+}
+.g {
+     grid-column: 1 ;
+     grid-row: 3;
+ }
+.h {
+    grid-column: 2 ;
+    grid-row: 3;
+}
+.i {
+    grid-column: 3 ;
+    grid-row: 3;
+}
+section {
+    padding-left: 2%;
+    padding-bottom: 2%;
+}
+
+#headerpic {
+    opacity: 0.7;
+    width: 100%;
+    height: auto;
+}
+#headline {
+    position: absolute;
+    padding-left: 2%;
+}

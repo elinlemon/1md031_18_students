@@ -1,9 +1,119 @@
 <!DOCTYPE html>
+
 <html lang="en">
-    <head>
-        <title>DELI-VERY</title>
-    </head>
-    <body>
-        <h1>Hello World!!!</h1>
-    </body>
+<head>
+    <title>Buy Burger</title>
+    <meta charset="utf-8"/>
+    <link rel="resetsheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="/vue/vue.js" defer></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script src="js/vue_script.js" defer></script>
+    <link rel="stylesheet" href="css/deli-very.css">
+
+
+</head>
+<body>
+<header>
+    <h1 id = "headline">Välkommen till BurgerOnline</h1>
+    <img id = "headerpic" src="img/header.png">
+</header>
+
+<main id='myburgers'>
+    <div class="wrapper">
+        <div v-for="burger in burgers" class="burger-item">
+            {{burger.name}}
+            <img v-bind:src='burger.burgImages'>
+            <ul>
+                <li v-for="ingredient in burger.ingredients">{{ingredient}}</li>
+                <li v-if="burger.gluten">
+                    Innehåller Gluten </li>
+                <li  v-if="burger.lactose">
+                    Innehåller Laktos
+                </li>
+                <br>
+                Add to order
+                <input type="checkbox" id="checkbox" v-model="chosenBurger" v-bind:value="burger.name">
+            </ul>
+        </div>
+    </div>
+
+    <section id = "kund">
+    <h2>Kundinformation</h2>
+    <p>Här fyller du i din kundinformation</p>
+        <p>
+            <label for="fullname">Full name</label><br>
+            <input type="text" id="fullname" name="fn" v-model="fullname" required="required" placeholder="First- and Last name">
+        </p>
+        <p>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="ln" v-model="email" placeholder="Email adress">
+        </p>
+
+        <p>
+            <label for="payment">Payment options</label><br>
+            <select id="payment" name="rcp" v-model="payment" >
+                <option disabled value = "">Credit card</option>
+                <option>Swish</option>
+                <option>Klarna</option>
+                <option>Invoice</option>
+            </select>
+            </select>
+        </p>
+        <p>Please select your gender:</p>
+        <input type="radio" name="gender" v-model = "person" value="male"> Male<br>
+        <input type="radio" name="gender" v-model = "person" value="female"> Female<br>
+        <input type="radio" name="gender" v-model = "person" value="non-binary"> Non-binary<br>
+        <input type="radio" name="gender" v-model = "person" value="undisclosed" checked> Undisclosed<br>
+
+
+
+
+    <h1> Click in the map! </h1>
+    <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
+    <div class="view-box">
+        <div id="dots" v-on:click="displayOrder">
+            <div v-bind:style="{ left: display.x + 'px', top: display.y + 'px'}">
+                T
+            </div>
+        </div>
+    </div>
+
+    <div id="orderButton">
+         <div class="orderedItems" v-bind="orderlist">
+
+         </div>
+        <button v-on:click="addOrder"><img
+                src="https://az61094.vo.msecnd.net/img/06/3024707e-359d-4c0c-9c89-0a91e97d2721/1320"
+                width="40">
+            Order!
+        </button>
+    </div>
+    </section>
+    <section id = 'orderinfo'>
+    <div id="pressedbuttonID">
+        <h3>Your order</h3>
+        <div v-for="burger in chosenBurger">{{burger}}</div>
+        <br>
+        <h3>Customer information</h3>
+        Name: {{fullname}} <br>
+        E-mail: {{email}} <br>
+        Payment method: {{payment}} <br>
+        Gender: {{person}}
+    </div>
+
+
+</section>
+</main>
+<hr>
+<footer>
+    &copy; Elin Lemon AB
+</footer>
+</body>
 </html>
+
+
+
+
+
